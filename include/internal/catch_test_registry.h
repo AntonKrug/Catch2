@@ -115,6 +115,7 @@ struct AutoReg : NonCopyable {
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
         CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
         INTERNAL_CATCH_DECLARE_SIG_TEST(TestFunc, INTERNAL_CATCH_REMOVE_PARENS(Signature));\
+        namespace {\
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName){\
             INTERNAL_CATCH_TYPE_GEN\
             INTERNAL_CATCH_NTTP_GEN(INTERNAL_CATCH_REMOVE_PARENS(Signature))\
@@ -133,6 +134,7 @@ struct AutoReg : NonCopyable {
             TestName<INTERNAL_CATCH_MAKE_TYPE_LISTS_FROM_TYPES(__VA_ARGS__)>();\
             return 0;\
         }();\
+        }\
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS \
         CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS \
@@ -164,6 +166,7 @@ struct AutoReg : NonCopyable {
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS                      \
         CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS                \
         template<typename TestType> static void TestFuncName();       \
+        namespace {\
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName) {                                     \
             INTERNAL_CATCH_TYPE_GEN                                                  \
             INTERNAL_CATCH_NTTP_GEN(INTERNAL_CATCH_REMOVE_PARENS(Signature))         \
@@ -185,6 +188,7 @@ struct AutoReg : NonCopyable {
                 t.reg_tests();                                        \
                 return 0;                                             \
             }();                                                      \
+        }                                                             \
         }                                                             \
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS                    \
         CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS              \
@@ -210,6 +214,7 @@ struct AutoReg : NonCopyable {
     #define INTERNAL_CATCH_TEMPLATE_TEST_CASE_METHOD_2( TestNameClass, TestName, ClassName, Name, Tags, Signature, ... ) \
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
         CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
+        namespace {\
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName){ \
             INTERNAL_CATCH_TYPE_GEN\
             INTERNAL_CATCH_NTTP_GEN(INTERNAL_CATCH_REMOVE_PARENS(Signature))\
@@ -229,6 +234,7 @@ struct AutoReg : NonCopyable {
                 TestNameClass<INTERNAL_CATCH_MAKE_TYPE_LISTS_FROM_TYPES(__VA_ARGS__)>();\
                 return 0;\
         }();\
+        }\
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS\
         CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS\
@@ -257,6 +263,7 @@ struct AutoReg : NonCopyable {
             struct TestName : INTERNAL_CATCH_REMOVE_PARENS(ClassName <TestType>) { \
                 void test();\
             };\
+        namespace {\
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestNameClass) {\
             INTERNAL_CATCH_TYPE_GEN                  \
             INTERNAL_CATCH_NTTP_GEN(INTERNAL_CATCH_REMOVE_PARENS(Signature))\
@@ -278,6 +285,7 @@ struct AutoReg : NonCopyable {
                 t.reg_tests();\
                 return 0;\
             }(); \
+        }\
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS \
         CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS \
