@@ -67,7 +67,7 @@ struct AutoReg : NonCopyable {
             namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName) {                                      \
             INTERNAL_CATCH_DECLARE_SIG_TEST_METHOD(TestName, ClassName, INTERNAL_CATCH_REMOVE_PARENS(Signature));\
         }                                                                                           \
-        }                                                                                           \                
+        }                                                                                           \
         INTERNAL_CATCH_DEFINE_SIG_TEST_METHOD(TestName, INTERNAL_CATCH_REMOVE_PARENS(Signature))
 
     #ifndef CATCH_CONFIG_TRADITIONAL_MSVC_PREPROCESSOR
